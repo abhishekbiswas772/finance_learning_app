@@ -19,4 +19,4 @@ COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.
 COPY --from=build /app/ /app/
 WORKDIR /app
 EXPOSE 80
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "app:create_app()"]
+CMD ["python", "-m", "flask", "run"]
