@@ -1,2 +1,5 @@
-migrations
-__pycache__
+# Ignore migrations directory
+/migrations
+
+# Ignore Python bytecode cache directory
+__pycache__/
