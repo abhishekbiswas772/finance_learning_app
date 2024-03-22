@@ -5,9 +5,7 @@ import os
 from Chapters.chapter_logic import blp as ChapterBluePrint
 from flask_migrate import Migrate
 
-
-
-def create_app(db_url= None):
+def create_app(db_url=None):
     app = Flask(__name__)
     app.config["API_VERSION"] = os.getenv("API_VERSION","v1")
     app.config["PROPAGATE_EXCEPTIONS"] = True
