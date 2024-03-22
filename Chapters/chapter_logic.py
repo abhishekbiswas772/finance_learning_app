@@ -23,6 +23,7 @@ class ChapterService(MethodView):
                     'title' : item.title,
                     'content' : item.content,
                     'time_to_complete' : item.time_to_complete,
+                    'points' : item.points
                 }
                 data_dict_sub = item.subchapters
                 res_sub = []
@@ -31,7 +32,8 @@ class ChapterService(MethodView):
                         "id" : item_sub.id,
                         "title" : item_sub.title,
                         "content" : item_sub.content,
-                        "chapter_id" : item_sub.chapter_id
+                        "chapter_id" : item_sub.chapter_id,
+                        'points' : item_sub.points
                     }
                     res_sub.append(data_sub_dict)
                 data_dict['sub_chapters'] = res_sub
@@ -52,6 +54,7 @@ class ChapterService(MethodView):
         chapter.title = chapter_data.get("title")
         chapter.content = chapter_data.get("content")
         chapter.time_to_complete = chapter_data.get("time_to_complete")
+        chapter.points = chapter_data.get("points")
         for subchapter_data in subchapters_data:
             subchapter = SubChapter(**subchapter_data)
             chapter.subchapters.append(subchapter)

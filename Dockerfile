@@ -19,7 +19,4 @@ COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.
 COPY --from=build /app/ /app/
 WORKDIR /app
 EXPOSE 80
-CMD ["python", "-m", "flask", "db", "init"]
-CMD ["python", "-m", "flask", "db", "migrate"]
-CMD ["python", "-m", "flask", "db", "upgrade"]
 CMD ["python", "app.py"]
