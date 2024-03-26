@@ -3,6 +3,7 @@ from db import db
 from flask_smorest import Api
 import os
 from Chapters.chapter_logic import blp as ChapterBluePrint
+from Certificate.certificate_logic import blp as CertificateBluePrint
 from flask_migrate import Migrate
 
 def create_app(db_url=None):
@@ -20,6 +21,7 @@ def create_app(db_url=None):
     migrate = Migrate(app, db)
     api = Api(app)
     api.register_blueprint(ChapterBluePrint)
+    api.register_blueprint(CertificateBluePrint)
     @app.errorhandler(Exception)
     def handle_error(e):
         app.logger.error(f"An error occurred: {str(e)}")
