@@ -22,6 +22,7 @@ def create_app(db_url=None):
     api = Api(app)
     api.register_blueprint(ChapterBluePrint)
     api.register_blueprint(CertificateBluePrint)
+    
     @app.errorhandler(Exception)
     def handle_error(e):
         app.logger.error(f"An error occurred: {str(e)}")
