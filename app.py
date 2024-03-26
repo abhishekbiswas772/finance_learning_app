@@ -4,6 +4,7 @@ from flask_smorest import Api
 import os
 from Chapters.chapter_logic import blp as ChapterBluePrint
 from Certificate.certificate_logic import blp as CertificateBluePrint
+from Certificate.chapter_quiz import blp as QuizBluePrint
 from flask_migrate import Migrate
 
 def create_app(db_url=None):
@@ -22,6 +23,7 @@ def create_app(db_url=None):
     api = Api(app)
     api.register_blueprint(ChapterBluePrint)
     api.register_blueprint(CertificateBluePrint)
+    api.register_blueprint(QuizBluePrint)
     
     @app.errorhandler(Exception)
     def handle_error(e):
