@@ -2,9 +2,9 @@ from PIL import Image, ImageFont, ImageDraw
 import io
 import base64
 
-FONT_FILE = ImageFont.truetype(r'font/GreatVibes-Regular.ttf', 180)
+FONT_FILE = ImageFont.truetype(r'CertificateGenerator/font/GreatVibes-Regular.ttf', 180)
 FONT_COLOR = "#000000"
-template = Image.open(r'template.png')
+template = Image.open(r'CertificateGenerator/template.png')
 WIDTH, HEIGHT = template.size
 
 def textsize(text, font):
@@ -14,7 +14,7 @@ def textsize(text, font):
     return width, height
 
 def make_certificates(name):
-    image_source = Image.open(r'template.png')
+    image_source = Image.open(r'CertificateGenerator/template.png')
     draw = ImageDraw.Draw(image_source)
     name_width, name_height = textsize(name, font=FONT_FILE)
     draw.text(((WIDTH - name_width) / 2, (HEIGHT - name_height) / 2  - 140), name.capitalize(), fill=FONT_COLOR, font=FONT_FILE)
