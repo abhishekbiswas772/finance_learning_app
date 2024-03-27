@@ -19,4 +19,5 @@ COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.
 COPY --from=build /app/ /app/
 WORKDIR /app
 EXPOSE 80
+
 CMD ["python", "app.py"]
